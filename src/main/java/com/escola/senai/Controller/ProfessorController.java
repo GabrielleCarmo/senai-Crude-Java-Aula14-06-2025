@@ -25,6 +25,7 @@ public class ProfessorController {
 
     @PostMapping
     public Professor salvarNovoProfessor(@RequestBody Professor professor){
+        boolean Professor;
         return service.salvar(professor);
     }
 
@@ -41,15 +42,15 @@ public class ProfessorController {
 
     @PutMapping("/{id}")
     public Professor atualizaProfessor(@PathVariable Long id, @RequestBody Professor professor){
-        Professor existeProfessor = service.buscarPorId(id);
+        Professor existeprofessor = service.buscarPorId(id);
 
-        boolean existeProfessor = false;
-        if (existeProfessor == null) return null;
-        existeProfessor.setNome(professor.getNome());
-        existeProfessor.setEmail(professor.getEmail());
-        existeProfessor.setTelefone(professor.getTelefone());
+        boolean existedProfessor = false;
+        if (existeprofessor == null) return null;
+        existeprofessor.setNome(professor.getNome());
+        existeprofessor.setEmail(professor.getEmail());
+        existeprofessor.setTelefone(professor.getTelefone());
 
-        return  service.salvar(existeProfessor);
+        return  service.salvar(existedProfessor);
     }
 
 }
